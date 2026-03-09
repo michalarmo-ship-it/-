@@ -177,12 +177,12 @@ body { font-family:'Heebo',sans-serif; background:var(--bg); color:#111; }
         </div>
       </details>
       <div class="lang-toggles">
-        <button class="lang-toggle active" data-key="he" onclick="toggleLang('he')">🇮🇱 עברית</button>
-        <button class="lang-toggle active" data-key="ru" onclick="toggleLang('ru')">🇷🇺 Русский</button>
-        <button class="lang-toggle" data-key="en" onclick="toggleLang('en')">🇺🇸 English</button>
-        <button class="lang-toggle" data-key="fr" onclick="toggleLang('fr')">🇫🇷 Français</button>
-        <button class="lang-toggle" data-key="ar" onclick="toggleLang('ar')">🇸🇦 عربي</button>
-        <button class="lang-toggle" data-key="am" onclick="toggleLang('am')">🇪🇹 አማርኛ ⏳</button>
+        <button class="lang-toggle active" data-key="he" onclick="toggleLang('he')">עברית</button>
+        <button class="lang-toggle active" data-key="ru" onclick="toggleLang('ru')">Русский</button>
+        <button class="lang-toggle" data-key="en" onclick="toggleLang('en')">English</button>
+        <button class="lang-toggle" data-key="fr" onclick="toggleLang('fr')">Français</button>
+        <button class="lang-toggle" data-key="ar" onclick="toggleLang('ar')">عربي</button>
+        <button class="lang-toggle" data-key="am" onclick="toggleLang('am')">አማርኛ ⏳</button>
       </div>
     </div>
   </div>
@@ -362,7 +362,7 @@ function makeCard(item){
   const color=CATS[item.cat]?.color||'#999';
   const id='c'+Math.random().toString(36).slice(2,8);
   const phonRow = item.phonetic ? `<div class="phonetic-row">🔊 ${item.phonetic}</div>` : '';
-  const langs=LANGS.map(l=>{const txt=item[l.key];return `<div class="lang-row lang-row-${l.key}${l.reviewed?'':' unreviewed'}" data-tts-text="${txt.replace(/"/g,'&quot;')}" data-tts-lang="${l.key}" onclick="speakFromEl(this)" title="לחץ להקראה" style="cursor:pointer"><span class="lflag">${l.flag}</span><span class="lname${l.dir==='rtl'?' rtl':''}">${txt}</span><span class="tts-row-icon">🔊</span></div>`;}).join('');
+  const langs=LANGS.map(l=>{const txt=item[l.key];return `<div class="lang-row lang-row-${l.key}${l.reviewed?'':' unreviewed'}" data-tts-text="${txt.replace(/"/g,'&quot;')}" data-tts-lang="${l.key}" onclick="speakFromEl(this)" title="לחץ להקראה" style="cursor:pointer"><span class="lname${l.dir==='rtl'?' rtl':''}">${txt}</span><span class="tts-row-icon">🔊</span></div>`;}).join('');
   const imgP = item.imgSrc ? Promise.resolve(item.imgSrc) : getWikiImage(item.wiki, item.wikiLang||'en');
   imgP.then(src=>{
     const img=document.getElementById('img_'+id);
